@@ -1,7 +1,5 @@
 # Bài tập An toàn và Bảo mật thông tin
 
-
-
 > Sinh viên: **[Hoàng Đình Điệp]** | MSSV: **[k235480106016]** | Lớp: **[k59 KTP]**
 
 
