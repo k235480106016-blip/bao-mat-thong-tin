@@ -1,18 +1,9 @@
-# Bài tập An toàn và Bảo mật thông tin: AES & RSA
+# Bài tập An toàn và Bảo mật thông tin
 
-Hai ứng dụng console viết bằng **C# / .NET** (Visual Studio 2022), thực hành mã hoá đối xứng AES, mã hoá bất đối xứng RSA, băm SHA-256 và chữ ký số.
 
-> Sinh viên: **[Họ tên]** | MSSV: **[MSSV]** | Lớp: **[Lớp]**
 
-## Cấu trúc repo
+> Sinh viên: **[Hoàng Đình Điệp]** | MSSV: **[k235480106016]** | Lớp: **[k59 KTP]**
 
-```
-AES-RSA-BAITAP/
-├── AesApp/     # Bài 1: AES
-├── RsaApp/     # Bài 2: RSA, SHA-256, chữ ký số
-├── images/     # Ảnh kết quả chạy
-└── README.md
-```
 
 ## Cách chạy
 
@@ -51,25 +42,29 @@ Cấu hình máy: **[CPU / RAM / SSD hay HDD]**. Khoá AES 256 bit, chế độ 
 
 Sinh khoá AES 256 bit và lưu ra file `E:\test\aes.key` (dạng base64).
 
-![Sinh khoá và lưu khoá](images/aes_01_sinh_khoa.png)
+<img width="1920" height="1080" alt="aes_01_sinh_khoa" src="https://github.com/user-attachments/assets/86641e7b-6782-430f-a147-561f47042c57" />
+
 
 ### Mã hoá và giải mã văn bản
 
 Mã hoá văn bản `diep` cho kết quả base64 `NcojddGycNRfjKUld9oc9u0fHDxPusWFFCU3zQX5tkQ=`. Dán chuỗi này vào chức năng giải mã thu lại đúng văn bản gốc `diep`. (Lần thử này dùng khoá 128 bit.)
 
-![Mã hoá và giải mã văn bản](images/aes_02_van_ban.png)
+<img width="1920" height="1080" alt="aes_02_van_ban" src="https://github.com/user-attachments/assets/1f454b9b-2ee1-4683-97bd-bb5f9ec3d966" />
+
 
 ### Mã hoá file 1 GB
 
 Tạo file ngẫu nhiên `test1g.bin` dung lượng 1024 MB, rồi mã hoá thành `test1g.bin.enc`.
 
-![Tạo file và mã hoá](images/aes_03_ma_hoa_file.png)
+<img width="1920" height="1080" alt="aes_03_ma_hoa_file" src="https://github.com/user-attachments/assets/d22c3744-7448-4e72-8df2-9f188910a902" />
+
 
 ### Giải mã và so sánh byte
 
 Giải mã `test1g.bin.enc` thành `test1g.bin.enc.dec`, rồi so sánh với file gốc theo từng byte.
 
-![Giải mã và so sánh](images/aes_04_giai_ma_so_sanh.png)
+<img width="1920" height="1080" alt="aes_04_giai_ma_so_sanh" src="https://github.com/user-attachments/assets/db8735bf-8472-4ad3-aa49-2a8b67f2bf08" />
+
 
 | Dung lượng | Thời gian mã hoá | Tốc độ mã hoá | Thời gian giải mã | Tốc độ giải mã | So sánh byte |
 |---|---|---|---|---|---|
@@ -105,7 +100,8 @@ Giải mã `test1g.bin.enc` thành `test1g.bin.enc.dec`, rồi so sánh với fi
 
 Sinh khoá RSA 2048 bit, xuất ra 4 file PEM tại thư mục `bin\Release\net10.0`.
 
-![Sinh khoá và xuất PEM](images/rsa_01_sinh_khoa.png)
+<img width="1920" height="1080" alt="rsa_01_sinh_khoa" src="https://github.com/user-attachments/assets/82ba9598-128b-4c6c-9354-cd073790fe3a" />
+
 
 ## 2. Cấu trúc file PEM
 
@@ -150,7 +146,8 @@ Cấu trúc của `private.pem` (kết quả thật từ chương trình):
 
 Ghi chú: INTEGER có byte `00` đứng đầu khi bit cao của byte đầu bằng 1, để số luôn được hiểu là số dương. Vì vậy n có 257 byte dù khoá chỉ 2048 bit (256 byte).
 
-![Xem file private.pem](images/rsa_02_xem_pem.png)
+<img width="1920" height="1080" alt="rsa_02_xem_pem" src="https://github.com/user-attachments/assets/389f3802-05e1-43c3-8680-837885b84d8e" />
+
 
 ## 3. Import PEM
 
@@ -166,7 +163,8 @@ Import `private.pem` thu được:
 
 Lưu ý: menu 4 hiển thị e là "24 bit" vì tính theo độ dài mảng byte (3 byte). Giá trị thật là 65537, chỉ 17 bit.
 
-![Import private.pem](images/rsa_03_import_pem.png)
+<img width="1920" height="1080" alt="rsa_03_import_pem" src="https://github.com/user-attachments/assets/dd41a32f-cebe-438d-8aee-cccd9e56c1d1" />
+
 
 ## 4. Mã hoá và giải mã
 
@@ -174,7 +172,8 @@ Lưu ý: menu 4 hiển thị e là "24 bit" vì tính theo độ dài mảng byt
 - Dữ liệu thử: 32 byte ngẫu nhiên (cỡ khoá AES-256). Kết quả mã hoá dài 256 byte, lưu base64 vào `cipher.b64`.
 - Giải mã bằng `private.pem` thu lại 32 byte, chương trình báo **"GIỐNG dữ liệu gốc"**.
 
-![Mã hoá và giải mã RSA](images/rsa_04_ma_hoa_giai_ma.png)
+<img width="1920" height="1080" alt="rsa_04_ma_hoa_giai_ma" src="https://github.com/user-attachments/assets/0b780239-2119-48b9-b36e-cf341096568a" />
+
 
 ## 5. Đánh giá tốc độ: public key (e nhỏ) và private key (d lớn)
 
@@ -191,7 +190,8 @@ Lưu ý: menu 4 hiển thị e là "24 bit" vì tính theo độ dài mảng byt
 - Khi tăng độ dài khoá, thời gian dùng khoá bí mật tăng mạnh (khoá 2048 bit là 0.866 ms, 4096 bit là 6.398 ms, tăng khoảng 7.4 lần), còn thời gian dùng khoá công khai tăng chậm hơn nhiều vì e luôn là 17 bit. Do đó tỉ lệ Dec/Enc càng lớn khi khoá càng dài.
 - Ký (dùng private key) chậm hơn xác minh (dùng public key) tương tự. Điều này hợp lý vì một bên ký thì nhiều bên xác minh.
 
-![Bảng tốc độ RSA](images/rsa_05_toc_do.png)
+<img width="1920" height="1080" alt="rsa_05_toc_do" src="https://github.com/user-attachments/assets/b8132a66-fc3e-4fec-8504-75313d994f4d" />
+
 
 ## 6. Băm SHA-256 và hiệu ứng thác đổ
 
@@ -206,7 +206,8 @@ SHA-256 của `Hello`: `185f8db32271fe25f561a6fc938b2e264306ec304eda518007d17648
 
 **Nhận xét:** hai chuỗi `Hellp` và `Hello` chỉ khác đúng 1 ký tự nhưng kết quả băm khác **127/256 bit (khoảng 50%)** và cả 32 byte đều đổi. Đây là **hiệu ứng thác đổ (avalanche effect)**: đầu vào thay đổi rất ít thì kết quả băm thay đổi hoàn toàn, không thể đoán trước, nên không suy ngược được đầu vào từ giá trị băm.
 
-![SHA-256](images/rsa_06_sha256.png)
+<img width="1920" height="1080" alt="rsa_06_sha256" src="https://github.com/user-attachments/assets/9f4ed2d4-d2ef-457c-afdd-59f381921455" />
+
 
 ## 7. Chữ ký số và đề xuất để chữ ký khác nhau mỗi lần ký
 
@@ -234,7 +235,7 @@ Hai chữ ký PSS của cùng dữ liệu `Hello`:
 
 Như vậy PSS đạt được mong muốn của đề: cùng dữ liệu và cùng người ký nhưng chữ ký khác nhau ở mỗi lần ký, và tất cả đều xác minh đúng.
 
-![Chữ ký số](images/rsa_07_chu_ky_so.png)
+<img width="1920" height="1080" alt="rsa_07_chu_ky_so" src="https://github.com/user-attachments/assets/215878ab-75cd-436e-b40b-415727d4895f" />
 
 ---
 
@@ -245,7 +246,4 @@ Như vậy PSS đạt được mong muốn của đề: cùng dữ liệu và c�
 - **SHA-256** có hiệu ứng thác đổ: đổi 1 ký tự thì khoảng 50% bit kết quả thay đổi.
 - **Chữ ký số** dùng RSASSA-PSS cho phép cùng dữ liệu, cùng người ký, chữ ký mỗi lần một khác mà vẫn xác minh được.
 
-## Tài liệu tham khảo
 
-- Microsoft Docs: `System.Security.Cryptography` (Aes, RSA, SHA256)
-- RFC 8017 (PKCS#1: RSA-OAEP, RSA-PSS), RFC 5208 (PKCS#8)
