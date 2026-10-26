@@ -201,6 +201,7 @@ Lưu ý: menu 4 hiển thị e là "24 bit" vì tính theo độ dài mảng byt
 | `Hellp` | `Hello` | 127/256 | 49.6% | 32/32 |
 
 SHA-256 của `Hellp`: `2113cd4a7aebc3a400a234c3de8a5c0c4d9fa8c6ca370d030aac9ab51e8c4476`
+
 SHA-256 của `Hello`: `185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969`
 
 **Nhận xét:** hai chuỗi `Hellp` và `Hello` chỉ khác đúng 1 ký tự nhưng kết quả băm khác **127/256 bit (khoảng 50%)** và cả 32 byte đều đổi. Đây là **hiệu ứng thác đổ (avalanche effect)**: đầu vào thay đổi rất ít thì kết quả băm thay đổi hoàn toàn, không thể đoán trước, nên không suy ngược được đầu vào từ giá trị băm.
