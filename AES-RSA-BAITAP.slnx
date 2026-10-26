@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AesApp/AesApp.csproj" />
+  <Project Path="RsaApp/RsaApp.csproj" />
+</Solution>
